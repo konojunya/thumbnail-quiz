@@ -1,0 +1,14 @@
+{
+  "name": "thumbnail-quiz",
+  "private": "true",
+  "repository": "ssh://git@github.com/konojunya/thumbnail-quiz.git",
+  "author": "konojunya <junya03dance@gmail.com>",
+  "workspaces": {
+    "packages": [
+      "workspaces/*"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "^2.7.0"
+  }
+}
