@@ -13,14 +13,17 @@
     "format:ts": "yarn gts fix '**/*.tsx' '**/*.ts'"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.2",
     "@chakra-ui/react": "^2.2.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "axios": "^0.27.2",
+    "formik": "^2.2.9",
     "framer-motion": "^6",
     "next": "^12.1.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.1.6",

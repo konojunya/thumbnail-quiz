@@ -1,4 +1,6 @@
 import type {Artist} from '../../../../types/model';
+import {Link as Anchor, List, ListItem} from '@chakra-ui/react';
+import Link from 'next/link';
 
 interface Props {
   artists: Artist[];
@@ -6,10 +8,14 @@ interface Props {
 
 export const Top: React.FC<Props> = ({artists}) => {
   return (
-    <ul>
+    <List>
       {artists.map(artist => (
-        <li key={artist.id}>{artist.name}</li>
+        <ListItem key={artist.id}>
+          <Link href={`/${artist.id}`}>
+            <Anchor>{artist.name}</Anchor>
+          </Link>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 };

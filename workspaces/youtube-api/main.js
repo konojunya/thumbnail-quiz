@@ -30,8 +30,9 @@ async function fetchVideos(id) {
   return data.items.map((item) => {
     const title = item.snippet.title;
     const thumbnail = item.snippet.thumbnails.high.url;
+    const link = `https://youtube.com/watch?v=${item.id.videoId}`;
 
-    return { title, thumbnail };
+    return { title, thumbnail, link };
   });
 }
 
