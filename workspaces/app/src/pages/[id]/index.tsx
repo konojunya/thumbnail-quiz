@@ -10,9 +10,9 @@ interface Props {
 }
 
 const ArtistDetailPage: NextPage<Props> = ({artist}) => {
-  const [quizList, setQuizList] = useState<Quiz[]>([]);
+  const [quizList, setQuizList] = useState<Quiz[] | null>(null);
 
-  if (quizList.length === 0) {
+  if (quizList == null) {
     return <ArtistDetail artist={artist} onSubmit={setQuizList} />;
   }
 

@@ -1,8 +1,16 @@
 import {CheckIcon, CloseIcon, ExternalLinkIcon} from '@chakra-ui/icons';
-import {Box, Button, Image, Stack, Text} from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Image,
+  Stack,
+  Text,
+  Link as Anchor,
+} from '@chakra-ui/react';
 import {useCallback} from 'react';
 import type {Artist} from '../../../../types/model';
 import type {Quiz} from '../../../hooks/useQuiz';
+import Link from 'next/link';
 
 interface Props {
   artist: Artist;
@@ -123,7 +131,11 @@ export const Share: React.FC<Props> = ({artist, quizList}) => {
                     >
                       <Stack key={video.title}>
                         <Image src={video.thumbnail} alt="" />
-                        <Text fontWeight="bold">{video.title}</Text>
+                        <Text fontWeight="bold">
+                          {quiz.answer === video.title &&
+                            'You are choice \u{1F449} '}
+                          {video.title}
+                        </Text>
                       </Stack>
                     </a>
                   );
@@ -135,6 +147,9 @@ export const Share: React.FC<Props> = ({artist, quizList}) => {
       </Stack>
 
       <Button onClick={handlePlayAgain}>Play again</Button>
+      <Link href="/">
+        <Anchor>Another artist</Anchor>
+      </Link>
 
       <Box paddingBottom={16} />
     </Stack>

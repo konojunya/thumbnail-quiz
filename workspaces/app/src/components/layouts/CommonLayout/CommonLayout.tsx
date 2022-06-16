@@ -1,7 +1,5 @@
 import {Grid, GridItem} from '@chakra-ui/react';
 import styled from '@emotion/styled';
-import Image from 'next/image';
-import logo from '../../../../public/logo.png';
 
 const Header = styled.header`
   padding: 8px;
@@ -18,6 +16,11 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
+const Image = styled.img`
+  width: 240px;
+  height: 40px;
+`;
+
 interface Props {
   children: React.ReactNode;
 }
@@ -27,13 +30,7 @@ export const CommonLayout: React.FC<Props> = ({children}) => {
     <Grid h="100vh" templateRows="65px 1fr">
       <GridItem rowSpan={1} as="header">
         <Header>
-          <Image
-            src={logo}
-            alt="thumbnail quiz logo"
-            width={240}
-            height={40}
-            layout="fixed"
-          />
+          <Image src="/logo.png" alt="thumbnail quiz logo" />
         </Header>
       </GridItem>
       <GridItem rowSpan={1}>
