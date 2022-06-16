@@ -1,4 +1,3 @@
-import axios from 'axios';
 import type {GetStaticProps, NextPage} from 'next';
 import type {Artist} from '../../types/model';
 import {Top} from '../components/pages/Top';
@@ -12,11 +11,11 @@ const TopPage: NextPage<Props> = ({artists}) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const {data} = await axios.get<Artist[]>('http://localhost:5000/api/artists');
+  const {default: artists} = await import('../contents/videos.json');
 
   return {
     props: {
-      artists: data,
+      artists,
     },
   };
 };

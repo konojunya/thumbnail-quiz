@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev -p 5000",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "export": "next export",
     "lint": "gts lint './**/*.tsx' './**/*.ts'",
     "format": "run-p -l format:*",
     "format:prettier": "prettier --config ./.prettierrc.js --write '**/*.+(ts|tsx|js|md|json)'",

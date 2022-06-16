@@ -1,0 +1,35 @@
+name: Deploy
+"on":
+  push:
+    branches:
+      - main
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 18.3.0
+
+      - name: Use Node.js 18.3.0
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.3.0
+          cache: "yarn"
+
+      - name: install deps
+        run: yarn --frozen-lockfile
+
+      - name: build
+        run: yarn workspace app build
+
+      - name: export
+        run: yarn workspace app export
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_THUMBNAIL_QUIZ_D1B88 }}"
+          channelId: live
+          projectId: thumbnail-quiz-d1b88

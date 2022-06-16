@@ -24,5 +24,8 @@ jobs:
       - name: lint
         run: yarn workspace app lint
 
+      - name: build
+        run: yarn workspace app build
+
       - name: format diff
         run: yarn workspace app format && git diff --exit-code || exit 1
