@@ -1,2 +1,3 @@
 # thumbnail-quiz
-How much do you know? :)
+
+Do you know the correct answer? :)
