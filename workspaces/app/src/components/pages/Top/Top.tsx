@@ -28,7 +28,7 @@ export const Top: React.FC<Props> = ({artists}) => {
         <UnorderedList>
           {artists.map(artist => (
             <ListItem key={artist.id}>
-              <Link href={`/${artist.id}`}>
+              <Link href={`/${artist.id}/`}>
                 <Anchor>
                   <Text fontSize="large">{artist.name}</Text>
                 </Anchor>
