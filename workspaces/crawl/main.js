@@ -4,7 +4,10 @@ const path = require("path");
 let latestEtag = null;
 
 const CHANNEL_MAP = {
-  "Flo Rida": "UCBRFlde39a2U4nAkmGqJwAQ",
+  florida: {
+    channelId: "UCBRFlde39a2U4nAkmGqJwAQ",
+    name: "Flo Rida",
+  },
 };
 
 async function fetchVideos(id) {
@@ -25,30 +28,30 @@ async function fetchVideos(id) {
   latestEtag = data.etag;
 
   return data.items.map((item) => {
-    const channelTitle = item.snippet.channelTitle;
     const title = item.snippet.title;
     const thumbnail = item.snippet.thumbnails.high.url;
 
-    return { channelTitle, title, thumbnail };
+    return { title, thumbnail };
   });
 }
 
 function writeFile(data) {
   fs.writeFileSync(
-    path.resolve(__dirname, "../app/contents/videos.json"),
-    JSON.stringify(data, null, 2)
+    path.resolve(__dirname, "../app/src/contents/videos.json"),
+    JSON.stringify(data)
   );
 }
 
 const channels = Array.from(Object.keys(CHANNEL_MAP));
 Promise.all(
-  channels.map(async (artistName) => {
-    const channelId = CHANNEL_MAP[artistName];
+  channels.map(async (id) => {
+    const channel = CHANNEL_MAP[id];
 
     return {
-      artistName,
-      channelId,
-      videos: await fetchVideos(channelId),
+      id,
+      name: channel.name,
+      channelId: channel.channelId,
+      videos: await fetchVideos(channel.channelId),
     };
   })
 ).then(writeFile);

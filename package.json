@@ -3,9 +3,16 @@
   "private": "true",
   "repository": "ssh://git@github.com/konojunya/thumbnail-quiz.git",
   "author": "konojunya <junya03dance@gmail.com>",
+  "scripts": {
+    "dev": "yarn workspace app dev"
+  },
   "workspaces": {
     "packages": [
       "workspaces/*"
+    ],
+    "nohoist": [
+      "**/app",
+      "**/app/**"
     ]
   },
   "devDependencies": {
