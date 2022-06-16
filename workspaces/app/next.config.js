@@ -2,6 +2,7 @@
 
 const config = {
   poweredByHeader: false,
+  trailingSlash: true,
 };
 
 module.exports = config;
